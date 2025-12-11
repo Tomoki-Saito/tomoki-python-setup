@@ -5,7 +5,15 @@ description = "Tomoki Python Setup"
 authors = [{ name = "Tomoki Saito | 齋藤 智樹" }]
 readme = "README.md"
 requires-python = ">= 3.14"
-dependencies = ["requests>=2.32.5"]
+dependencies = [
+    "pandas>=2.3.3",
+    "pydantic>=2.12.5",
+    "requests>=2.32.5",
+]
 
 [dependency-groups]
-dev = ["ruff>=0.14.8", "ty>=0.0.1a33"]
+dev = [
+    "pandas-stubs>=2.3.3.251201",
+    "ruff>=0.14.8",
+    "ty>=0.0.1a33",
+]
