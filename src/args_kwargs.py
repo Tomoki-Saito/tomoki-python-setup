@@ -6,10 +6,11 @@ ty は *args と **kwargs の型アノテーションを正確に理解し、
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Unpack
+import functools
+from typing import TYPE_CHECKING, ParamSpec, TypedDict, TypeVar, Unpack
 
 if TYPE_CHECKING:
-    from typing import TypedDict
+    from collections.abc import Callable
 
 # ========================================
 # 基本的な *args
@@ -187,22 +188,20 @@ def use_typed_kwargs_demo() -> None:
 # ParamSpec を使った関数のラップ
 # ========================================
 
-from typing import ParamSpec, TypeVar
-
 P = ParamSpec("P")
 R = TypeVar("R")
 
 
-def log_call(func: Callable[P, R]) -> Callable[P, R]:
+def log_call[**P, R](func: Callable[P, R]) -> Callable[P, R]:
     """関数呼び出しをログするデコレータ。
 
     ParamSpec を使うと、ラップした関数の引数の型を保持できる。
     """
-    import functools
+    name = getattr(func, "__name__", "unknown")
 
     @functools.wraps(func)
     def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
-        print(f"Calling {func.__name__}")
+        print(f"Calling {name}")
         return func(*args, **kwargs)
 
     return wrapper
@@ -228,8 +227,6 @@ def use_paramspec_demo() -> None:
 # ========================================
 # Callable での *args/**kwargs
 # ========================================
-
-from collections.abc import Callable
 
 
 def apply_to_all(
