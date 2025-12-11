@@ -1,0 +1,11 @@
+[project]
+name = "tomoki-python-setup"
+version = "1.0.0"
+description = "Tomoki Python Setup"
+authors = [{ name = "Tomoki Saito | 齋藤 智樹" }]
+readme = "README.md"
+requires-python = ">= 3.14"
+dependencies = ["requests>=2.32.5"]
+
+[tool.uv]
+dev-dependencies = ["ruff>=0.14.8", "ty>=0.0.1a33"]
