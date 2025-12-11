@@ -16,13 +16,18 @@ ignore = [
   "S101",
   # Python 3.7 までで型アノテーションを付ける際の Warning
   "FA102",
-  # 「＿」 を使っている場合
+  # 全角文字の使用（日本語ドキュメント用）
   "RUF001",
+  "RUF002",
   "RUF003",
   # type: ignore を使っている場合
   "PGH003",
   # Trailing comma (formatter との競合を避ける)
   "COM812",
+  # docstring が `.` で終わっていない（日本語は `。` で終わる）
+  "D415",
+  # docstring の最初の行が大文字で始まっていない
+  "D403",
 ]
 
 [lint.pydocstyle]

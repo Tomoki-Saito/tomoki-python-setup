@@ -7,5 +7,5 @@ readme = "README.md"
 requires-python = ">= 3.14"
 dependencies = ["requests>=2.32.5"]
 
-[tool.uv]
-dev-dependencies = ["ruff>=0.14.8", "ty>=0.0.1a33"]
+[dependency-groups]
+dev = ["ruff>=0.14.8", "ty>=0.0.1a33"]
