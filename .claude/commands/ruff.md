@@ -19,3 +19,9 @@ uv run ty check
 # 環境になければ
 uvx ty check
 ```
+
+もしこれらのツールについてあなたが知らなければ、これらのドキュメントを Web Search してください。
+
+- <https://docs.astral.sh/ruff/>
+- <https://docs.astral.sh/uv/>
+- <https://docs.astral.sh/ty/>
